@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="نظام لاعب شخصي للمهام والخبرة والمستويات">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>PLAYER SYSTEM | نظام اللاعب</title>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">S</div><div><div class="eyebrow">PERSONAL RPG</div><strong>PLAYER SYSTEM</strong></div></div>
+    <div class="live"><span class="live-dot"></span> النظام نشط</div>
+  </header>
+
+  <main class="container">
+    <section class="hero panel">
+      <div class="hero-copy">
+        <div class="eyebrow blue">STATUS WINDOW / نافذة الحالة</div>
+        <h1>مرحبًا، <span id="player-name-heading">أيها اللاعب</span></h1>
+        <p class="muted">رحلتك تبدأ بخطوة صغيرة. أكمل مهامك واجمع الخبرة وارتقِ بمستواك.</p>
+        <div class="level-line"><div><span class="muted small">المستوى الحالي</span><div class="level-number" id="level">1</div></div><div class="rank-box"><span class="muted small">الرتبة</span><strong id="rank">E</strong></div></div>
+        <div class="xp-meta"><span>الخبرة للمستوى التالي</span><strong><span id="level-xp">0</span> / 100 XP</strong></div>
+        <div class="progress"><div id="xp-bar" class="progress-fill"></div></div>
+        <div class="muted small" id="xp-total">إجمالي الخبرة: 0 XP</div>
+      </div>
+      <div class="sigil" aria-hidden="true"><div class="sigil-inner">✦</div><span>AWAKEN</span></div>
+    </section>
+
+    <section class="stats-grid" aria-label="إحصائيات اللاعب">
+      <article class="stat-card panel"><span class="stat-icon">✦</span><span class="muted small">القوة</span><strong id="stat-strength">10</strong><span class="stat-note">نقاط افتراضية</span></article>
+      <article class="stat-card panel"><span class="stat-icon">⌁</span><span class="muted small">الحيوية</span><strong id="stat-vitality">10</strong><span class="stat-note">نقاط افتراضية</span></article>
+      <article class="stat-card panel"><span class="stat-icon">➤</span><span class="muted small">الرشاقة</span><strong id="stat-agility">10</strong><span class="stat-note">نقاط افتراضية</span></article>
+      <article class="stat-card panel"><span class="stat-icon">◇</span><span class="muted small">الذكاء</span><strong id="stat-intellect">10</strong><span class="stat-note">نقاط افتراضية</span></article>
+    </section>
+
+    <section class="section-head">
+      <div><div class="eyebrow blue">DAILY QUEST</div><h2>مهام اليوم</h2><p class="muted small" id="today-label"></p></div>
+      <div class="quest-counter"><strong id="done-count">0/5</strong><span class="muted small">مكتملة</span></div>
+    </section>
+
+    <section class="quest-list" id="quest-list"></section>
+
+    <section class="bottom-grid">
+      <article class="panel section-panel">
+        <div class="eyebrow blue">PLAYER PROFILE</div><h2>ملف اللاعب</h2>
+        <label for="player-name">اسم اللاعب</label>
+        <div class="input-row"><input id="player-name" maxlength="24" value="اللاعب" placeholder="اكتب اسم اللاعب"><button id="save-name" class="button secondary">حفظ الاسم</button></div>
+        <p class="muted tiny">يُحفظ الاسم والتقدم تلقائيًا على هذا الجهاز والمتصفح.</p>
+      </article>
+      <article class="panel section-panel">
+        <div class="eyebrow blue">ACTIVITY LOG</div><h2>سجل الإنجازات</h2>
+        <div id="activity-log" class="activity-log"><p class="muted small">لم تُسجّل إنجازات بعد.</p></div>
+      </article>
+    </section>
+
+    <section class="notice panel">
+      <div class="notice-icon">i</div><div><strong>معلومة عن الحفظ</strong><p class="muted small">يُحفظ التقدم في هذا المتصفح على جهازك. حذف بيانات المتصفح أو استخدام جهاز آخر قد يؤدي إلى عدم ظهور التقدم. هذه النسخة لا تحتوي على حساب أو مزامنة سحابية.</p></div>
+    </section>
+    <footer><span>PLAYER SYSTEM · الإصدار الأول</span><button id="reset-button" class="text-button">إعادة ضبط التقدم</button></footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="level-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="level-modal-title">
+    <div class="modal-card panel"><div class="modal-emblem">✦</div><div class="eyebrow blue">LEVEL UP</div><h2 id="level-modal-title">ارتفع مستواك!</h2><p id="level-modal-text">لقد وصلت إلى مستوى جديد.</p><button id="close-modal" class="button primary full">متابعة</button></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
